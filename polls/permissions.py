@@ -42,7 +42,7 @@ class AnswerGatewayPermission(BasePermission):
         if request.user.is_authenticated:
             view.queryset = view.queryset.filter(user=request.user)
         else:
-            view.queryset = []
+            view.queryset = view.queryset.none()
 
         return True
 
